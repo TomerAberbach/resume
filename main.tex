@@ -1,0 +1,43 @@
+% Class
+% =====
+\documentclass{article}
+
+% Packages
+% ========
+\usepackage{
+    geometry, % Page Layout
+    array, % Tables
+    parskip, % Paragraphs
+    ragged2e, % Text Alignment
+    enumitem, % Bullet Points
+    fontspec, % Font Commands
+    xifthen, % Conditionals
+    comment % Block Comments
+}
+\usepackage[hidelinks]{hyperref} % Hyperlinks
+
+% Configuration
+% =============
+\input{configuration.tex}
+
+% Commands and Environments
+% =========================
+\input{commands.tex}
+
+% Document
+% ========
+\begin{document}
+    % Load Information
+    \input{content/information.tex}
+    
+    % Header
+    \header
+    
+    % Load Content
+    \input{content/education.tex}
+    \input{content/employment.tex}
+    \input{content/projects.tex}
+    %\input{content/awards.tex}
+    \input{content/skills.tex}
+    %\input{content/activities.tex}
+\end{document}

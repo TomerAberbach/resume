@@ -1,0 +1,98 @@
+% Usage: \sep
+% Inserts a pipe with horizontal padding around it
+\newcommand*\sep{\enskip\textbar\enskip}
+
+% Usage: \vhrulefill{<thickness>}
+% Inserts a horizontal line of the specified thickness
+\newcommand*\vhrulefill[1]{\leavevmode\leaders\hrule height #1\hfill\kern0pt}
+
+% Usage: \cvsection{<section-title>}
+% Inserts a resume section header with the given title
+\newcommand*\cvsection[1]{
+    \vspace{1mm}
+    {\Large\bfseries\upshape#1}
+    \phantomsection\vhrulefill{0.9pt}\par
+}
+
+% Usage: \cvsubsection{<subsection-title>}
+% Inserts a resume subsection header with the given title
+\newcommand\cvsubsection[1]{
+    {\normalsize\sbseries#1}
+    \phantomsection\par
+}
+
+% Usage: \begin{cvparagraph}
+%            <content>
+%        \end{cvparagraph}
+% Inserts a resume paragraph with the given content
+\newenvironment{cvparagraph}
+    {\normalsize\ltseries\upshape}
+    {\par}
+
+% Usage: \begin{cvitems}
+%            \item <text>
+%            \item <text>
+%            ...
+%        \end{cvitems}
+% Inserts a resume bullet point list
+\newenvironment{cvitems}{
+    \vspace{-4.5mm}
+    \begin{justify}
+    \begin{itemize}[leftmargin = 2.5ex, nosep, noitemsep]
+    \setlength{\parskip}{0pt}
+    \renewcommand{\labelitemi}{$\bullet$}
+    \normalsize\ltseries\upshape
+}{
+    \end{itemize}
+    \end{justify}
+}
+
+% Usage: \begin{cventry}
+%            {<heading>}
+%            {<subheading>?}
+%            {<date-range>}
+%            {<tags?>}{<tags?>}
+%            <content>
+%        \end{cventry}
+% Inserts a resume entry with a heading, subheading if present, date-range
+% right-aligned, tags if present, and content
+\newenvironment{cventry}[5]{
+    \vspace{1mm}
+    \setlength\tabcolsep{0pt}
+    \setlength\extrarowheight{0pt}
+    \begin{tabular*}{\textwidth}{l @{\extracolsep{\fill}} r}
+        {\normalsize\sbseries\upshape#1} & {\normalsize\itshape#3}
+        \ifthenelse{\NOT\isempty{#2}}{
+            \\
+            \multicolumn{2}{l}{\normalsize\upshape#2}
+        }{}
+        \ifthenelse{\NOT\isempty{#4#5}}{
+            \\
+            \multicolumn{2}{l}{
+                \small\ltseries
+                \ifthenelse{\isempty{#4} \OR \isempty{#5}}{\itshape#4#5}{{\itshape#4} | {\itshape#5}}
+            }
+        }{}
+        \vspace{1mm}
+    \end{tabular*}
+}{\par}
+
+% Usage: \header
+% Inserts the resume header based on commands in content/information.tex
+\newcommand*\header{
+    \begin{center}
+        {\Huge\ltseries\name}
+        
+        \vspace{1.5mm}
+        
+        {
+            \normalsize\upshape
+            \phone \sep
+            \href{mailto:\email}{\email} \sep
+            \href{https://\website}{\website} \sep
+            \href{https://github.com/\github}{github.com/\github} \sep
+            \href{https://www.linkedin.com/in/\linkedin}{linkedin.com/in/\linkedin}
+        }
+    \end{center}
+    \vspace{1.25mm}
+}
