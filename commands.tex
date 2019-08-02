@@ -9,7 +9,7 @@
 % Usage: \cvsection{<section-title>}
 % Inserts a resume section header with the given title
 \newcommand*\cvsection[1]{
-    \vspace{1mm}
+    \vspace{0.6mm}
     {\Large\bfseries\upshape#1}
     \phantomsection\vhrulefill{0.9pt}\par
 }
@@ -57,7 +57,7 @@
 % Inserts a resume entry with a heading, subheading if present, date-range
 % right-aligned, tags if present, and content
 \newenvironment{cventry}[5]{
-    \vspace{1mm}
+    \vspace{0.6mm}
     \setlength\tabcolsep{0pt}
     \setlength\extrarowheight{0pt}
     \begin{tabular*}{\textwidth}{l @{\extracolsep{\fill}} r}
