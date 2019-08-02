@@ -2,7 +2,7 @@
 
 > A LaTeX document for my resume.
 
-[See it here!](https://github.com/TomerAberbach/resume/resume.pdf)
+[See it here!](https://github.com/TomerAberbach/resume/blob/master/resume.pdf)
 
 ## Usage
 
