@@ -27,11 +27,11 @@ If you'd like to edit the resume locally, then complete the following steps:
    ```sh
    $ git clone https://github.com/TomerAberbach/resume.git
    ```
-2. Install [XeLaTeX](http://xetex.sourceforge.net) and run the appropriate command for your operating system to compile to PDF.
+2. Install [XeLaTeX](http://xetex.sourceforge.net) and run the appropriate command for your operating system to compile to PDF
 
 ## Usage
 
-To edit the resume content without affecting the resume's layout, edit the arguments of commands in files under the [`content`](https://github.com/TomerAberbach/resume/tree/master/content) directory.
+To edit the resume content without affecting the resume's layout, edit commands arguments in files under the [`content`](https://github.com/TomerAberbach/resume/tree/master/content) directory.
 
 To hide, reorder, or create new sections, modify the lines under the `% Load Content` comment in [`main.tex`](https://github.com/TomerAberbach/resume/blob/master/main.tex) that correspond to the appropriate [`content`](https://github.com/TomerAberbach/resume/tree/master/content) directory file.
 
