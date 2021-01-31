@@ -2,7 +2,7 @@
 
 > A LaTeX document for my resume.
 
-[See it here!](https://github.com/TomerAberbach/resume/blob/master/resume.pdf)
+[See it here!](https://github.com/TomerAberbach/resume/blob/main/resume.pdf)
 
 ## Installation
 
@@ -31,12 +31,12 @@ If you'd like to edit the resume locally, then complete the following steps:
 
 ## Usage
 
-To edit the resume content without affecting the resume's layout, edit commands arguments in files under the [`content`](https://github.com/TomerAberbach/resume/tree/master/content) directory.
+To edit the resume content without affecting the resume's layout, edit commands arguments in files under the [`content`](https://github.com/TomerAberbach/resume/tree/main/content) directory.
 
-To hide, reorder, or create new sections, modify the lines under the `% Load Content` comment in [`main.tex`](https://github.com/TomerAberbach/resume/blob/master/main.tex) that correspond to the appropriate [`content`](https://github.com/TomerAberbach/resume/tree/master/content) directory file.
+To hide, reorder, or create new sections, modify the lines under the `% Load Content` comment in [`main.tex`](https://github.com/TomerAberbach/resume/blob/main/main.tex) that correspond to the appropriate [`content`](https://github.com/TomerAberbach/resume/tree/main/content) directory file.
 
 If you want to make more substantial changes, then search in [Overleaf's tutorials](https://www.overleaf.com/learn/latex/Tutorials). If you can't figure something out and need some help, then feel free to [file an issue](https://github.com/TomerAberbach/resume/issues/new/choose).
 
 ## License
 
-[MIT](https://github.com/TomerAberbach/resume/blob/master/license) © [Tomer Aberbach](https://github.com/TomerAberbach)
+[MIT](https://github.com/TomerAberbach/resume/blob/main/license) © [Tomer Aberbach](https://github.com/TomerAberbach)
