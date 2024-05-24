@@ -29,14 +29,13 @@
     {\normalsize\ltseries\upshape}
     {\par}
 
-% Usage: \begin{cvitems}
+% Usage: \begin{plaincvitems}
 %            \item <text>
 %            \item <text>
 %            ...
-%        \end{cvitems}
-% Inserts a resume bullet point list
-\newenvironment{cvitems}{
-    \vspace{-4.5mm}
+%        \end{plaincvitems}
+% Inserts a resume bullet point list with no spacing changes
+\newenvironment{plaincvitems}{
     \begin{justify}
     \begin{itemize}[leftmargin = 2.5ex, nosep, noitemsep]
     \setlength{\parskip}{0pt}
@@ -47,34 +46,49 @@
     \end{justify}
 }
 
+% Usage: \begin{cvitems}
+%            \item <text>
+%            \item <text>
+%            ...
+%        \end{cvitems}
+% Inserts a resume bullet point list
+\newenvironment{cvitems}{
+    \vspace{-4.5mm}
+    \begin{plaincvitems}
+}{
+    \end{plaincvitems}
+}
+
 % Usage: \begin{cventry}
-%            {<heading>}
+%            {<heading>?}
 %            {<subheading>?}
 %            {<date-range>}
-%            {<tags?>}{<tags?>}
+%            {<tags?>}
 %            <content>
 %        \end{cventry}
 % Inserts a resume entry with a heading, subheading if present, date-range
 % right-aligned, tags if present, and content
-\newenvironment{cventry}[5]{
+\newenvironment{cventry}[4]{
     \vspace{0.6mm}
     \setlength\tabcolsep{0pt}
     \setlength\extrarowheight{0pt}
     \begin{tabular*}{\textwidth}{l @{\extracolsep{\fill}} r}
-        {\normalsize\sbseries\upshape#1} & {\normalsize\itshape#3}
-        \ifthenelse{\NOT\isempty{#2}}{
-            \\
-            \multicolumn{2}{l}{\normalsize\upshape#2}
-        }{}
-        \ifthenelse{\NOT\isempty{#4#5}}{
-            \\
-            \multicolumn{2}{l}{
-                \small\ltseries
-                \ifthenelse{\isempty{#4} \OR \isempty{#5}}{\itshape#4#5}{{\itshape#4} | {\itshape#5}}
-            }
-        }{}
+        \ifthenelse{\isempty{#1}}{%
+            {\normalsize\upshape#2}{
+               \ifthenelse{\NOT\isempty{#4}}{· \normalsize\ltseries\itshape#4}{}
+            } & {\normalsize\itshape#3}
+        }{%
+            {\normalsize\sbseries\upshape#1}{
+               \ifthenelse{\NOT\isempty{#4}}{· \normalsize\ltseries\itshape#4}{}
+            } & {\normalsize\itshape#3}
+            \ifthenelse{\NOT\isempty{#2}}{%
+                \\
+                \multicolumn{2}{l}{\normalsize\upshape#2}
+            }{}
+        }
         \vspace{1mm}
     \end{tabular*}
+    \ifthenelse{{\isempty{#1}\OR\isempty{#2}}}{\vspace{-1.8mm}}{}
 }{\par}
 
 % Usage: \header
@@ -87,7 +101,6 @@
         
         {
             \normalsize\upshape
-            \phone \sep
             \href{mailto:\email}{\email} \sep
             \href{https://\website}{\website} \sep
             \href{https://github.com/\github}{github.com/\github} \sep

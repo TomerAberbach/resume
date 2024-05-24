@@ -12,9 +12,15 @@
     enumitem, % Bullet Points
     fontspec, % Font Commands
     xifthen, % Conditionals
-    comment % Block Comments
+    comment, % Block Comments
 }
-\usepackage[hidelinks]{hyperref} % Hyperlinks
+ % Hyperlinks
+\usepackage[
+    colorlinks=false,
+    allbordercolors={0 0 0},
+    pdfborder={0 0 0},
+    pdfborderstyle={/S/U/W 1}
+]{hyperref}
 
 % Configuration
 % =============
@@ -35,9 +41,7 @@
     
     % Load Content
     \input{content/employment.tex}
-    \input{content/education.tex}
     \input{content/projects.tex}
-    %\input{content/awards.tex}
+    \input{content/education.tex}
     \input{content/skills.tex}
-    %\input{content/activities.tex}
 \end{document}
