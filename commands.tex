@@ -70,7 +70,7 @@
 % Inserts a resume entry with a heading, subheading if present, date-range
 % right-aligned, tags if present, and content
 \newenvironment{cventry}[4]{
-    \vspace{0.6mm}
+    \vspace{0.4mm}
     \setlength\tabcolsep{0pt}
     \setlength\extrarowheight{0pt}
     \begin{tabular*}{\textwidth}{l @{\extracolsep{\fill}} r}
@@ -89,20 +89,19 @@
         }
         \vspace{1mm}
     \end{tabular*}
-    \ifthenelse{{\isempty{#1}\OR\isempty{#2}}}{\vspace{-1.8mm}}{}
+    \ifthenelse{{\isempty{#1}\OR\isempty{#2}}}{\vspace{-2mm}}{}
 }{\par}
 
 % Usage: \header
 % Inserts the resume header based on commands in content/information.tex
 \newcommand*\header{
     \begin{center}
-        {\Huge\ltseries\name}
+        {\huge\ltseries\name}
         
-        \vspace{1.5mm}
+        \vspace{1.25mm}
         
         {
             \normalsize\upshape
-            \href{mailto:\email}{\email} \sep
             \href{https://\website}{\website} \sep
             \href{https://github.com/\github}{github.com/\github} \sep
             \href{https://www.linkedin.com/in/\linkedin}{linkedin.com/in/\linkedin}
